@@ -12,59 +12,85 @@
       padding: 0;
       background-color: #eef6f9;
       color: #1c2d3a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
+
     header {
       background-color: #1a3b5d;
       color: white;
       padding: 20px;
       text-align: center;
     }
-    header h1 {
-      color: white;
-    }
+
     nav {
       margin-top: 15px;
-      position: relative;
       display: flex;
       gap: 25px;
       justify-content: center;
       flex-wrap: wrap;
     }
+
     nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1em;
-      padding: 8px 18px;
-      border-radius: 6px;
-      background-color: rgba(0, 45, 102, 0.8);
-      transition: background-color 0.3s, color 0.3s;
-    }
-    nav a:hover {
-      color: #ffffff;
-    }
-    section {
-      padding: 30px 15%;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+  padding: 8px 18px;
+  border-radius: 6px;
+  background-color: rgba(0, 45, 102, 0.8);
+  transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
+  border: 2px solid white; /* << เพิ่มขอบ */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* << เงาแบบปุ่ม */
+}
+
+nav a:hover {
+  background-color: rgba(0, 45, 102, 1);
+  color: #fff;
+  transform: translateY(-2px); /* ยกปุ่มนิด ๆ ตอน hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+    main {
+      flex: 1;
+      padding: 30px 15% 100px; /* เผื่อที่ให้ footer */
       text-align: center;
     }
+
     h2 {
       color: #145374;
+      margin-bottom: 20px;
     }
+
+    .pool {
+      text-align: justify;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    img {
+      width: 80%;
+      max-width: 700px;
+      max-height: 330px;
+      border-radius: 10px;
+    }
+
     footer {
       background-color: #1a3b5d;
       color: white;
       text-align: center;
       padding: 20px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
     }
+
     @media (max-width: 768px) {
       nav {
-        flex-direction: row; 
         gap: 10px;
-        justify-content: center;
         padding: 0 10px;
+      }
+      main {
+        padding: 20px 5% 100px;
       }
     }
   </style>
@@ -80,12 +106,17 @@
     </nav>
   </header>
 
-  <section>
-    <h2>พื้นที่สระว่ายน้ำและสิ่งอำนวยความสะดวก</h2>
-    <p>สระว่ายน้ำของเราเป็นสถานที่ที่เหมาะสำหรับการพักผ่อนและออกกำลังกาย</p>
-    <p>เปิดให้บริการตั้งแต่เวลา 07:00 น. ถึง 20:00 น. ทุกวัน</p>
-    <img src="Pool.jpg" alt="Hotel Pool" style="width: 80%; max-width: 600px; border-radius: 10px; margin-top: 20px;">
-  </section>
+  <main>
+    <h2>สระว่ายน้ำ</h2>
+    <div class="pool">
+      มาเล่นน้ำ แช่ตัว พักผ่อนหย่อนใจริมสระว่ายน้ำหลังจากท่องเที่ยว หรือประชุมมาอย่างเหน็ดเหนื่อยมาทั้งวัน คุณสามารถพักผ่อนที่สระว่ายน้ำกลางแจ้งของเรา โดยการนอนเล่นบนเก้าอี้อาบแดด และจิบเครื่องดื่มเย็นๆ ที่บาร์ริมสระว่ายน้ำ พร้อมบริการอาหารนานาชาติและอาหารไทย คุณสามารถรับประทานอาหารทานเล่น หรือสั่งอาหารจานเด็ดมาแชร์กับเพื่อนๆ ในบรรยากาศสุดผ่อนคลายริมสระว่ายน้ำ
+
+      สระว่ายน้ำเด็กได้ถูกออกแบบมาเพื่อแขกตัวน้อยของเราเพื่อความปลอดภัย ด้วยความลึกเพียง 0.6 เมตร ในขณะที่เด็กๆ เล่นน้ำอย่างสนุกอยู่นั้น คุณสามารถนั่งพักผ่อนอย่างสบาย เพราะเรามีเจ้าหน้าที่รักษาความปลอดภัยปฏิบัติหน้าที่ดูแลเด็กๆ ของคุณที่พร้อมช่วยเหลือตลอดเวลา
+
+      เปิดให้บริการตั้งแต่ 5.00 น. – 22.00 น.
+    </div>
+    <img src="Pool.jpg" alt="Hotel Pool">
+  </main>
 
   <footer>
     <p>&copy; Novotel</p>
