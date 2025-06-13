@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ห้องอีโคโนมีเตียงใหญ่</title>
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      margin: 0;
+      background: #fff;
+      color: #000;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      display: flex;
+      gap: 30px;
+    }
+    .left-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .right-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+    #largeImageDisplay {
+      width: 100%;
+      max-width: 100%;
+      height: 300px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      align-self: flex-start;
+    }
+    #largeImage {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .thumbnail-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-start;
+      align-self: flex-start;
+    }
+    .thumbnail-gallery img {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      aspect-ratio: 4/3;
+    }
+    .thumbnail-gallery img:hover {
+      transform: scale(1.1);
+    }
+    .icons {
+      font-size: 1.1em;
+      line-height: 2em;
+    }
+    .section {
+      margin: 20px 0;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li::before {
+      content: "\2713  ";
+      color: green;
+      margin-right: 5px;
+    }
+    .price-box-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      margin-top: 20px;
+    }
+    .price-note {
+      font-size: 0.95em;
+      color: #333;
+      margin-top: 20px;
+      align-self: flex-start;
+      text-align: left;
+    }
+    .price-box {
+      background: #002d66;
+      color: white;
+      padding: 15px;
+      font-size: 1.3em;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .price-box:hover {
+      background: #004080;
+    }
+    .subtitle {
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+    .bottom-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 20px;
+    }
+    .bottom-left-note {
+      text-align: left;
+      font-size: 0.95em;
+      color: #333;
+      align-self: flex-start;
+      margin-top: auto;
+    }
+  </style>
+  <script>
+    function showLargeImage(src) {
+      document.getElementById('largeImage').src = src;
+    }
+    function payNow() {
+      alert('คุณได้ทำการชำระเงินเรียบร้อยแล้ว');
+    }
+    window.onload = function() {
+      document.querySelector('.price-box').addEventListener('click', payNow);
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="left-side">
+      <div style="align-self: flex-start;">
+        <div id="largeImageDisplay">
+          <img id="largeImage" src="Economy Double Room 1.jpg" alt="ภาพห้องพัก" />
+        </div>
+        <div class="thumbnail-gallery">
+          <img src="Economy Double Room 1.jpg" onclick="showLargeImage(this.src)" alt="ภาพ 1" />
+          <img src="Economy Double Room 2.jpg" onclick="showLargeImage(this.src)" alt="ภาพ 2" />
+          <img src="Economy Double Room 3.jpg" onclick="showLargeImage(this.src)" alt="ภาพ 3" />
+          <img src="Economy Double Room 4.jpg" onclick="showLargeImage(this.src)" alt="ภาพ 4" />
+          <img src="Economy Double Room 5.jpg" onclick="showLargeImage(this.src)" alt="ภาพ 5" />
+          <img src="Economy Double Room 6.jpg" onclick="showLargeImage(this.src)" alt="ภาพ 6" />
+          <img src="Economy Double Room 7.jpg" onclick="showLargeImage(this.src)" alt="ภาพ 7" />
+          <img src="Economy Double Room 8.jpg" onclick="showLargeImage(this.src)" alt="ภาพ 8" />
+          <img src="Economy Double Room 9.jpg" onclick="showLargeImage(this.src)" alt="ภาพ 9" />
+          <img src="Economy Double Room 10.jpg" onclick="showLargeImage(this.src)" alt="ภาพ 10" />
+        </div>
+      </div>
+      <div class="bottom-left-note">👫 ห้องอีโคโนมีเตียงใหญ่ | 🚫 จองแล้วไม่สามารถปรับเปลี่ยนได้</div>
+    </div>
+
+    <div class="right-side">
+      <div>
+        <h1>ห้องอีโคโนมีเตียงใหญ่</h1>
+
+        <div class="icons">
+          🛏️ ห้องพัก | 📐 37 ตร.ม. | 🍽️ มุมครัว | 🚿 ห้องน้ำส่วนตัว | 🌄 วิวทัศน์<br>
+          ❄️ เครื่องปรับอากาศ | 📺 โทรทัศน์จอแบน
+        </div>
+
+        <div class="section">
+          <strong>ขนาดห้อง:</strong> 398 ตร.ฟุต<br>
+          <strong>1 เตียงคิงไซส์ 🛏️</strong><br>
+          เตียงนอนสบาย (8.4 คะแนน) - อิงจาก 236 รีวิว
+        </div>
+
+        <div class="section">
+          ห้องเตียงใหญ่ขนาดกว้างขวางมีเครื่องปรับอากาศ เครื่องชงชาและกาแฟ และห้องน้ำส่วนตัวพร้อมอ่างอาบน้ำและฝักบัว
+          ห้องเตียงใหญ่มีมุมครัวพร้อมตู้เย็น ซึ่งท่านสามารถใช้สำหรับการทำอาหารและการจัดเก็บอาหาร ห้องเตียงใหญ่มีพื้นกระเบื้อง
+          พื้นที่นั่งเล่นพร้อมโทรทัศน์จอแบนระบบช่องสัญญาณเคเบิล พื้นที่รับประทานอาหาร ตู้เสื้อผ้า และตู้เซฟ ยูนิตมี 1 เตียง
+        </div>
+
+        <div class="section">
+          <div class="subtitle">สิ่งที่มีในมุมครัวส่วนตัว:</div>
+          <ul>
+            <li>ตู้เย็น</li>
+            <li>อุปกรณ์ชงชา/กาแฟ</li>
+            <li>กาต้มน้ำไฟฟ้า</li>
+            <li>พื้นที่รับประทานอาหาร</li>
+            <li>โต๊ะทานอาหาร</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <div class="subtitle">สิ่งที่มีในห้องน้ำส่วนตัว:</div>
+          <ul>
+            <li>เครื่องใช้ในห้องน้ำฟรี</li>
+            <li>ไดร์เป่าผม</li>
+            <li>สุขา</li>
+            <li>กระดาษชำระ</li>
+            <li>อ่างอาบน้ำหรือฝักบัว</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <div class="subtitle">วิว:</div>
+          <ul>
+            <li>วิวทัศน์</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <div class="subtitle">สิ่งอำนวยความสะดวกภายในห้องพัก:</div>
+          <ul>
+            <li>ตู้เซฟ</li>
+            <li>โต๊ะทานอาหาร</li>
+            <li>โทรทัศน์จอแบน</li>
+            <li>บริการโทรปลุก</li>
+            <li>ผ้าเช็ดตัว</li>
+            <li>ห้องพักทั้งหมดรองรับผู้ใช้วีลแชร์</li>
+            <li>พื้นที่นั่งเล่น</li>
+            <li>ปลั๊กใกล้เตียง</li>
+            <li>อุปกรณ์ชงชา/กาแฟ</li>
+            <li>ผ้าเช็ดตัว/ผ้าปูที่นอน (มีค่าธรรมเนียม)</li>
+            <li>โทรศัพท์</li>
+            <li>ตู้เย็น</li>
+            <li>ห้องพักทั้งหมดอยู่ชั้นแรก</li>
+            <li>พื้นกระเบื้อง/หินอ่อน</li>
+            <li>มุมครัว</li>
+            <li>กาต้มน้ำไฟฟ้า</li>
+            <li>ระบบปรับอากาศแบบแยกห้องสำหรับห้องพัก</li>
+            <li>ช่องรายการเคเบิล</li>
+            <li>ตู้หรือห้องเก็บเสื้อผ้า</li>
+            <li>ช่องรายการดาวเทียม</li>
+            <li>เครื่องปรับอากาศ</li>
+            <li>พื้นที่รับประทานอาหาร</li>
+            <li>ราวแขวนเสื้อผ้า</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <strong>การสูบบุหรี่:</strong> ห้ามสูบบุหรี่
+        </div>
+
+        <div class="price-box-wrapper">
+          <div class="price-box">THB 998<br>รวมภาษีและค่าธรรมเนียมแล้ว</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
