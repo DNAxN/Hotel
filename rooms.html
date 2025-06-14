@@ -63,10 +63,11 @@
       background-color: #002d66;
       color: white;
       padding: 10px 20px;
-      margin-top: 10px;
+      margin-top: 0px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      display: inline-block;
     }
     .pay-btn:hover {
       background-color: #004080;
@@ -86,9 +87,7 @@
       background-color: #f0f0f0;
     }
     #countdown {
-      margin-top: 10px;
-      font-weight: bold;
-      color: red;
+      display: none;
     }
     .details-toggle {
       margin-top: 10px;
@@ -147,14 +146,15 @@
     <tbody>
       <tr>
         <td>
-          <a class="room-link" href="Economy Double Room.html">ห้องอีโคโนมีเตียงใหญ่</a><br>
-          <span style="font-size: 0.9em;">
-            🛌 เตียงคิงไซส์<br>
-            ↔️ 37 ตร.ม. 🍽️ มุมครัวส่วนตัว 🚿 ห้องน้ำในตัว 🏞️ ทิวทัศน์ ❄️ เครื่องปรับอากาศ 📺 โทรทัศน์จอแบน
+          <a class="room-link" href="Economy Double Room.html" id="roomName">ห้องอีโคโนมีเตียงใหญ่</a><br>
+          <span id="roomFeatures" style="font-size: 0.9em;">
+            🛌 เตียงคิงไซส์ ↔️ 37 ตร.ม. 🍽️ มุมครัวส่วนตัว <br>
+            📶 Wi-Fi 🚿 ห้องน้ำในตัว 🏞️ ทิวทัศน์ <br> 
+            ❄️ เครื่องปรับอากาศ 📺 โทรทัศน์จอแบน<br>
           </span>
-          <div class="details-toggle" onclick="toggleDetails()">+ สิ่งอำนวยความสะดวกเพิ่มเติม</div>
+          <div id="detailsToggle" class="details-toggle" onclick="toggleDetails()">+ เพิ่มเติม</div>
           <div id="detailsSection" class="details-section">
-            <ul>
+            <ul id="roomDetailsList">
               <li><span class="green-check">✔</span> เครื่องใช้ในห้องน้ำฟรี</li>
               <li><span class="green-check">✔</span> ตู้นิรภัย</li>
               <li><span class="green-check">✔</span> สุขา</li>
@@ -187,10 +187,10 @@
           </div>
         </td>
         <td>👥</td>
-        <td class="price">THB 1,290</td>
+        <td class="price" id="priceToday">THB 1,290</td>
         <td>
           <label>
-            <input type="checkbox" id="breakfastOption" onchange="updateSummary()"> รับอาหารเช้าเพิ่ม 120 บาท
+            <input type="checkbox" id="breakfastOption" onchange="updateSummary()"> <span id="breakfastLabel">รับอาหารเช้าเพิ่ม 120 บาท</span>
           </label>
         </td>
         <td>
@@ -201,7 +201,7 @@
           </div>
         </td>
         <td>
-          <div id="roomDetails" class="options-list"></div>
+          <div id="roomDetails" class="options-list" style="display: none;"></div>
           <div id="countdown"></div>
           <button class="pay-btn" id="payBtn" onclick="payNow()">ชำระเงิน</button>
         </td>
@@ -212,36 +212,37 @@
   <script>
     function toggleDetails() {
       const section = document.getElementById('detailsSection');
-      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+      const toggleText = document.getElementById('detailsToggle');
+      if (section.style.display === 'none' || section.style.display === '') {
+        section.style.display = 'block';
+        toggleText.textContent = '- ซ่อนรายละเอียด';
+      } else {
+        section.style.display = 'none';
+        toggleText.textContent = '+ เพิ่มเติม';
+      }
     }
 
-    function changeQuantity(change) {
-      const input = document.getElementById('roomCount');
-      let current = parseInt(input.value, 10) || 0;
-      current += change;
+    function changeQuantity(delta) {
+      const countInput = document.getElementById('roomCount');
+      let current = parseInt(countInput.value);
+      current = isNaN(current) ? 0 : current + delta;
       if (current < 0) current = 0;
-      input.value = current;
+      countInput.value = current;
       updateSummary();
     }
 
     function updateSummary() {
-      const count = parseInt(document.getElementById('roomCount').value) || 0;
-      const includeBreakfast = document.getElementById('breakfastOption').checked;
-      const pricePerRoom = 1290;
-      const breakfastPrice = includeBreakfast ? 120 : 0;
-      const total = count * (pricePerRoom + breakfastPrice);
+      const roomDetails = document.getElementById('roomDetails');
+      const count = parseInt(document.getElementById('roomCount').value);
+      const hasBreakfast = document.getElementById('breakfastOption').checked;
 
-      const detailsDiv = document.getElementById('roomDetails');
-      detailsDiv.innerHTML = count > 0 ? `รวมทั้งสิ้น: ${total.toLocaleString()} บาท (${count} ห้อง${includeBreakfast ? ' พร้อมอาหารเช้า' : ''})` : '';
+      roomDetails.innerText = `จำนวนห้อง: ${count}, อาหารเช้า: ${hasBreakfast ? 'รวม' : 'ไม่รวม'}`;
+
+      roomDetails.style.display = count > 0 ? 'block' : 'none';
     }
 
     function payNow() {
-      const count = parseInt(document.getElementById('roomCount').value) || 0;
-      if (count === 0) {
-        alert("กรุณาเลือกจำนวนห้องก่อนทำการชำระเงิน");
-        return;
-      }
-      alert("ชำระเงินเรียบร้อยแล้ว ขอบคุณที่ใช้บริการ!");
+      alert("ดำเนินการชำระเงิน");
     }
   </script>
 </body>
