@@ -136,11 +136,12 @@
     <thead>
       <tr>
         <th id="col1">ประเภทห้องพัก</th>
-        <th id="col2">จำนวนผู้เข้าพัก</th>
+        <th id="col2">จำนวน
+            ผู้เข้าพัก</th>
         <th id="col3">ราคาวันนี้</th>
         <th id="col4">ตัวเลือกสำหรับท่าน</th>
         <th id="col5">เลือกห้องพัก</th>
-        <th id="col6">รายละเอียด & ชำระเงิน</th>
+        <th id="col6">ชำระเงิน</th>
       </tr>
     </thead>
     <tbody>
@@ -155,39 +156,35 @@
           <div id="detailsToggle" class="details-toggle" onclick="toggleDetails()">+ เพิ่มเติม</div>
           <div id="detailsSection" class="details-section">
             <ul id="roomDetailsList">
-              <li><span class="green-check">✔</span> เครื่องใช้ในห้องน้ำฟรี</li>
-              <li><span class="green-check">✔</span> ตู้นิรภัย</li>
-              <li><span class="green-check">✔</span> สุขา</li>
+              <li><span class="green-check">✔</span> ยาสีฟัน</li>
+              <li><span class="green-check">✔</span> แชมพูสระผม ครีมอาบน้ำ</li>
+              <li><span class="green-check">✔</span> ตู้เย็น</li>
               <li><span class="green-check">✔</span> อ่างอาบน้ำหรือฝักบัว</li>
               <li><span class="green-check">✔</span> ผ้าเช็ดตัว</li>
               <li><span class="green-check">✔</span> ปลั๊กใกล้เตียง</li>
-              <li><span class="green-check">✔</span> พื้นกระเบื้อง/หินอ่อน</li>
               <li><span class="green-check">✔</span> พื้นที่นั่งเล่น</li>
               <li><span class="green-check">✔</span> โทรทัศน์</li>
-              <li><span class="green-check">✔</span> ตู้เย็น</li>
               <li><span class="green-check">✔</span> โทรศัพท์</li>
               <li><span class="green-check">✔</span> ช่องรายการดาวเทียม</li>
               <li><span class="green-check">✔</span> อุปกรณ์ชงชา/กาแฟ</li>
               <li><span class="green-check">✔</span> ไดร์เป่าผม</li>
               <li><span class="green-check">✔</span> มุมครัว</li>
-              <li><span class="green-check">✔</span> ผ้าเช็ดตัว/ผ้าปูที่นอน (มีค่าธรรมเนียม)</li>
+              <li><span class="green-check">✔</span> ผ้าเช็ดตัว/ผ้าปูที่นอน</li>
               <li><span class="green-check">✔</span> กาต้มน้ำไฟฟ้า</li>
-              <li><span class="green-check">✔</span> ช่องรายการเคเบิล</li>
               <li><span class="green-check">✔</span> บริการโทรปลุก</li>
               <li><span class="green-check">✔</span> ตู้หรือห้องเก็บเสื้อผ้า</li>
               <li><span class="green-check">✔</span> พื้นที่รับประทานอาหาร</li>
               <li><span class="green-check">✔</span> โต๊ะทานอาหาร</li>
-              <li><span class="green-check">✔</span> ห้องพักทั้งหมดอยู่ชั้นแรก</li>
-              <li><span class="green-check">✔</span> ห้องพักอยู่ชั้นบน เข้าถึงได้ด้วยลิฟต์</li>
+              <li><span class="green-check">✔</span> ลิฟต์</li>
               <li><span class="green-check">✔</span> ราวแขวนเสื้อผ้า</li>
               <li><span class="green-check">✔</span> กระดาษชำระ</li>
-              <li><span class="green-check">✔</span> ห้องพักทั้งหมดรองรับผู้ใช้วีลแชร์</li>
-              <li><span class="green-check">✔</span> ระบบปรับอากาศแบบแยกห้อง</li>
+              <li><span class="green-check">✔</span> รองรับผู้ใช้วีลแชร์</li>
+              <li><span class="green-check">✔</span> เครื่องปรับอากาศ</li>
             </ul>
           </div>
         </td>
         <td>👥</td>
-        <td class="price" id="priceToday">THB 1,290</td>
+        <td class="price" id="priceToday">THB 990</td>
         <td>
           <label>
             <input type="checkbox" id="breakfastOption" onchange="updateSummary()"> <span id="breakfastLabel">รับอาหารเช้าเพิ่ม 120 บาท</span>
@@ -236,7 +233,8 @@
       const count = parseInt(document.getElementById('roomCount').value);
       const hasBreakfast = document.getElementById('breakfastOption').checked;
 
-      roomDetails.innerText = `จำนวนห้อง: ${count}, อาหารเช้า: ${hasBreakfast ? 'รวม' : 'ไม่รวม'}`;
+      roomDetails.innerText = `จำนวนห้อง: ${count}, 
+      อาหารเช้า: ${hasBreakfast ? 'รวม' : 'ไม่รวม'}`;
 
       roomDetails.style.display = count > 0 ? 'block' : 'none';
     }
