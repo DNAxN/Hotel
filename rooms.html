@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rooms</title>
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      margin: 20px;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 15px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #002d66;
+      color: white;
+      font-weight: 600;
+    }
+    tr:not(:last-child) td {
+      border-bottom: 1px solid #eee;
+    }
+    .price {
+      font-weight: bold;
+      color: #27ae60;
+    }
+    .note, .options-list {
+      font-size: 0.9em;
+      color: #555;
+    }
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .quantity-controls button {
+      padding: 5px 10px;
+      border: none;
+      background-color: #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .quantity-controls input {
+      width: 40px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 5px;
+    }
+    .pay-btn {
+      background-color: #002d66;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .pay-btn:hover {
+      background-color: #004080;
+    }
+    .lang-toggle {
+      margin-bottom: 20px;
+    }
+    .lang-toggle button {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      background-color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .lang-toggle button:hover {
+      background-color: #f0f0f0;
+    }
+    #countdown {
+      margin-top: 10px;
+      font-weight: bold;
+      color: red;
+    }
+    .details-toggle {
+      margin-top: 10px;
+      color: #002d66;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .details-section {
+      display: none;
+      margin-top: 10px;
+    }
+    .details-section ul {
+      list-style: none;
+      padding: 0;
+      columns: 2;
+    }
+    .details-section li {
+      margin-bottom: 5px;
+    }
+    .green-check {
+      color: green;
+    }
+    .red-cross {
+      color: red;
+    }
+    a.room-link {
+      font-weight: bold;
+      font-size: 1.1em;
+      text-decoration: none;
+      color: #002d66;
+    }
+    a.room-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-toggle">
+    <button onclick="setLanguage('th')">TH</button>
+    <button onclick="setLanguage('en')">EN</button>
+  </div>
+
+  <h1 id="title">รายละเอียดห้องพัก</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th id="col1">ประเภทห้องพัก</th>
+        <th id="col2">จำนวนผู้เข้าพัก</th>
+        <th id="col3">ราคาวันนี้</th>
+        <th id="col4">ตัวเลือกสำหรับท่าน</th>
+        <th id="col5">เลือกห้องพัก</th>
+        <th id="col6">รายละเอียด & ชำระเงิน</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a class="room-link" href="Economy Double Room.html">ห้องอีโคโนมีเตียงใหญ่</a><br>
+          <span style="font-size: 0.9em;">
+            🛌 เตียงคิงไซส์<br>
+            ↔️ 37 ตร.ม. 🍽️ มุมครัวส่วนตัว 🚿 ห้องน้ำในตัว 🏞️ ทิวทัศน์ ❄️ เครื่องปรับอากาศ 📺 โทรทัศน์จอแบน
+          </span>
+          <div class="details-toggle" onclick="toggleDetails()">+ สิ่งอำนวยความสะดวกเพิ่มเติม</div>
+          <div id="detailsSection" class="details-section">
+            <ul>
+              <li><span class="green-check">✔</span> เครื่องใช้ในห้องน้ำฟรี</li>
+              <li><span class="green-check">✔</span> ตู้นิรภัย</li>
+              <li><span class="green-check">✔</span> สุขา</li>
+              <li><span class="green-check">✔</span> อ่างอาบน้ำหรือฝักบัว</li>
+              <li><span class="green-check">✔</span> ผ้าเช็ดตัว</li>
+              <li><span class="green-check">✔</span> ปลั๊กใกล้เตียง</li>
+              <li><span class="green-check">✔</span> พื้นกระเบื้อง/หินอ่อน</li>
+              <li><span class="green-check">✔</span> พื้นที่นั่งเล่น</li>
+              <li><span class="green-check">✔</span> โทรทัศน์</li>
+              <li><span class="green-check">✔</span> ตู้เย็น</li>
+              <li><span class="green-check">✔</span> โทรศัพท์</li>
+              <li><span class="green-check">✔</span> ช่องรายการดาวเทียม</li>
+              <li><span class="green-check">✔</span> อุปกรณ์ชงชา/กาแฟ</li>
+              <li><span class="green-check">✔</span> ไดร์เป่าผม</li>
+              <li><span class="green-check">✔</span> มุมครัว</li>
+              <li><span class="green-check">✔</span> ผ้าเช็ดตัว/ผ้าปูที่นอน (มีค่าธรรมเนียม)</li>
+              <li><span class="green-check">✔</span> กาต้มน้ำไฟฟ้า</li>
+              <li><span class="green-check">✔</span> ช่องรายการเคเบิล</li>
+              <li><span class="green-check">✔</span> บริการโทรปลุก</li>
+              <li><span class="green-check">✔</span> ตู้หรือห้องเก็บเสื้อผ้า</li>
+              <li><span class="green-check">✔</span> พื้นที่รับประทานอาหาร</li>
+              <li><span class="green-check">✔</span> โต๊ะทานอาหาร</li>
+              <li><span class="green-check">✔</span> ห้องพักทั้งหมดอยู่ชั้นแรก</li>
+              <li><span class="green-check">✔</span> ห้องพักอยู่ชั้นบน เข้าถึงได้ด้วยลิฟต์</li>
+              <li><span class="green-check">✔</span> ราวแขวนเสื้อผ้า</li>
+              <li><span class="green-check">✔</span> กระดาษชำระ</li>
+              <li><span class="green-check">✔</span> ห้องพักทั้งหมดรองรับผู้ใช้วีลแชร์</li>
+              <li><span class="green-check">✔</span> ระบบปรับอากาศแบบแยกห้อง</li>
+            </ul>
+          </div>
+        </td>
+        <td>👥</td>
+        <td class="price">THB 1,290</td>
+        <td>
+          <label>
+            <input type="checkbox" id="breakfastOption" onchange="updateSummary()"> รับอาหารเช้าเพิ่ม 120 บาท
+          </label>
+        </td>
+        <td>
+          <div class="quantity-controls">
+            <button onclick="changeQuantity(-1)">-</button>
+            <input type="number" id="roomCount" value="0" min="0" onchange="updateSummary()" />
+            <button onclick="changeQuantity(1)">+</button>
+          </div>
+        </td>
+        <td>
+          <div id="roomDetails" class="options-list"></div>
+          <div id="countdown"></div>
+          <button class="pay-btn" id="payBtn" onclick="payNow()">ชำระเงิน</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    function toggleDetails() {
+      const section = document.getElementById('detailsSection');
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function changeQuantity(change) {
+      const input = document.getElementById('roomCount');
+      let current = parseInt(input.value, 10) || 0;
+      current += change;
+      if (current < 0) current = 0;
+      input.value = current;
+      updateSummary();
+    }
+
+    function updateSummary() {
+      const count = parseInt(document.getElementById('roomCount').value) || 0;
+      const includeBreakfast = document.getElementById('breakfastOption').checked;
+      const pricePerRoom = 1290;
+      const breakfastPrice = includeBreakfast ? 120 : 0;
+      const total = count * (pricePerRoom + breakfastPrice);
+
+      const detailsDiv = document.getElementById('roomDetails');
+      detailsDiv.innerHTML = count > 0 ? `รวมทั้งสิ้น: ${total.toLocaleString()} บาท (${count} ห้อง${includeBreakfast ? ' พร้อมอาหารเช้า' : ''})` : '';
+    }
+
+    function payNow() {
+      const count = parseInt(document.getElementById('roomCount').value) || 0;
+      if (count === 0) {
+        alert("กรุณาเลือกจำนวนห้องก่อนทำการชำระเงิน");
+        return;
+      }
+      alert("ชำระเงินเรียบร้อยแล้ว ขอบคุณที่ใช้บริการ!");
+    }
+  </script>
+</body>
+</html>
