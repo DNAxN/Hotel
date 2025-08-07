@@ -244,6 +244,7 @@
   <script>
     const content = {
       th: {
+        title : "โนโวเทล กรุงเทพ ฟิวเจอร์พาร์ค รังสิต",
         hotelTitle: "ข้อมูลโรงแรม",
         hotelInfo1: `โรงแรมโนโวเทล กรุงเทพ ฟิวเจอร์พาร์ค รังสิต เป็นโรงแรมระดับ 4 ดาว จากเครือแอคคอร์ ตั้งอยู่ในย่านรังสิตทางตอนเหนือของกรุงเทพฯ ...`,
         hotelInfo2: `โรงแรมแห่งนี้ให้คุณมากกว่าการพักผ่อน ด้วยล็อบบี้อันกว้างขวางพร้อมที่จะต้อนรับแขกทุกท่าน ...`,
@@ -255,6 +256,7 @@
         footer: `ถนน พหลโยธิน, ตำบล ประชาธิปัตย์, อำเภอ ธัญบุรี , 12130 ปทุมธานี , ประเทศไทย`
       },
       en: {
+        title : "Hotel in Rangsit Novotel Bangkok Future Park Rangsit",
         hotelTitle: "Hotel Information",
         hotelInfo1: `Novotel Bangkok Future Park Rangsit is a 4-star hotel under the Accor group, located in northern Bangkok’s Rangsit area ...`,
         hotelInfo2: `This hotel offers more than just relaxation, with a spacious lobby to welcome all guests ...`,
@@ -268,6 +270,7 @@
     };
 
     function setLanguage(lang) {
+      document.title = translations[lang].title;
       document.getElementById('hotelTitle').innerText = content[lang].hotelTitle;
       document.getElementById('hotelInfo1').innerText = content[lang].hotelInfo1;
       document.getElementById('hotelInfo2').innerText = content[lang].hotelInfo2;
@@ -281,3 +284,4 @@
   </script>
 </body>
 </html>
+
