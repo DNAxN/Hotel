@@ -220,6 +220,7 @@
 
     function setLanguage(lang) {
       document.title = content[lang].title;
+      document.getElementById('h1').innerText = content[lang].h1;
       document.getElementById('hotelTitle').innerText = content[lang].hotelTitle;
       document.getElementById('hotelInfo1').innerText = content[lang].hotelInfo1;
       document.getElementById('hotelInfo2').innerText = content[lang].hotelInfo2;
@@ -233,5 +234,6 @@
   </script>
 </body>
 </html>
+
 
 
