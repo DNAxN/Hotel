@@ -141,7 +141,7 @@
 <body>
 
   <header>
-    <h1>โนโวเทล กรุงเทพ ฟิวเจอร์พาร์ค รังสิต</h1>
+    <h1 id="topic">โนโวเทล กรุงเทพ ฟิวเจอร์พาร์ค รังสิต</h1>
     <button class="lang-btn" onclick="setLanguage('th')">TH</button>
     <button class="lang-btn" style="right: 70px;" onclick="setLanguage('en')">EN</button>
     <nav>
@@ -192,6 +192,8 @@
     const content = {
       th: {
         title : "โนโวเทล กรุงเทพ ฟิวเจอร์พาร์ค รังสิต",
+        topic: "โนโวเทล กรุงเทพ ฟิวเจอร์พาร์ค รังสิต",
+        hotelTitle: "Novotel Bangkok Future Park Rangsit",
         hotelTitle: "ข้อมูลโรงแรม",
         hotelInfo1: `โรงแรมโนโวเทล กรุงเทพ ฟิวเจอร์พาร์ค รังสิต เป็นโรงแรมระดับ 4 ดาว จากเครือแอคคอร์ ตั้งอยู่ในย่านรังสิตทางตอนเหนือของกรุงเทพฯ ที่รายล้อมไปด้วยห้างสรรพสินค้า ย่านธุรกิจ สนามบินนานาชาติดอนเมือง และสถานที่ท่องเที่ยวสำคัญมากมาย โรงแรมที่ได้รับการรับรอง SHA+ และ Green Key ใกล้ฟิวเจอร์พาร์ค คือสถานที่ที่สมบูรณ์แบบสำหรับการ ‘ใช้เวลา’ เพื่อหลีกหนีจากความวุ่นวายและผ่อนคลาย หรือสำรวจพื้นที่โดยรอบ ด้วยทางด่วนและบริการรถไฟฟ้าสีแดงที่ใกล้เคียง คุณสามารถเดินทางไปยังนิคมอุตสาหกรรมในจังหวัดปทุมธานี เมืองโบราณจังหวัดอยุธยา และสนามบินนานาชาติดอนเมือง (ห่างเพียง 12 กิโลเมตร) ได้อย่างสะดวกสบาย มาพักที่โนโวเทล กรุงเทพ ฟิวเจอร์พาร์ค รังสิตและสัมผัสกับสถานที่พักในเมืองที่เต็มไปด้วยอิสระและความสะดวกสบาย`,
         hotelInfo2: `โรงแรมแห่งนี้ให้คุณมากกว่าการพักผ่อน ด้วยล็อบบี้อันกว้างขวางพร้อมที่จะต้อนรับแขกทุกท่าน หรือ บริเวณบาร์เพื่อดื่มด่ำกับเครื่องดื่มสุดโปรดของคุณ อีกทั้งยังมีพื้นที่คิดส์โซนสำหรับเด็กๆ พร้อมให้ลูกค้าตัวน้อยของเราเพลิดเพลินและสนุกสนานไปกับมัน ที่โนโวเทล กรุงเทพ ฟิวเจอร์พาร์ค รังสิต มีบริการห้องพักและห้องสวีทจำนวน 226 ห้อง ทุกห้องตกแต่งด้วยกลิ่นอายร่วมสมัย ให้คุณรู้สึกอบอุ่นเหมือนอยู่บ้าน พร้อมสิ่งอำนวยความสะดวกและอินเตอร์เน็ต Wi-Fi ความเร็วสูงที่ครอบคลุม ในห้องพักมีลำโพงบลูทูธ อุปกรณ์ชงชาและกาแฟ สะดวกสบายไปกับอุปกรณ์อำนวยความสะดวกในห้องน้ำ พร้อมเริ่มต้นเช้าวันใหม่ด้วยความสดชื่นด้วยการอาบน้ำแบบเรนชาวเวอร์ หรือ ผ่อนคลายไปกับการแช่ตัวในอ่างอาบน้ำ เพื่อให้คุณได้ติดต่อกับการทำงานของคุณได้อย่างง่ายดาย หรือ นอนพักเพื่อเพิ่มพลังในยามบ่ายบนเดย์เบดที่ออกแบบมาเพื่อคลายความเหนื่อยล้าของคุณ`,
@@ -204,6 +206,7 @@
       },
       en: {
         title : "Hotel in Rangsit Novotel Bangkok Future Park Rangsit",
+        topic : "Novotel Bangkok Future Park Rangsit",
         hotelTitle: "Hotel Information",
         hotelInfo1: `Novotel Bangkok Future Park Rangsit is a 4-star hotel under the Accor Group, located in Rangsit, northern Bangkok. It is surrounded by shopping malls, business districts, Don Mueang International Airport, and many significant tourist attractions. Certified with SHA+ and Green Key, this hotel near Future Park is a perfect place to ‘spend time’—whether escaping the chaos to relax or exploring nearby areas. With nearby expressways and the Red Line electric train, you can easily travel to Pathum Thani’s industrial zones, the ancient city of Ayutthaya, and Don Mueang International Airport (just 12 kilometers away). Stay at Novotel Bangkok Future Park Rangsit and enjoy a city retreat full of freedom and comfort.`,
         hotelInfo2: `This hotel offers more than just a place to rest. With a spacious lobby ready to welcome every guest, and a bar area to enjoy your favorite drink, it also features a kids' zone for the little ones to have fun and enjoy. Novotel Bangkok Future Park Rangsit offers 226 rooms and suites, all styled in a contemporary design that feels warm and home-like, equipped with high-speed Wi-Fi and modern amenities. Each room includes a Bluetooth speaker, tea and coffee-making facilities, a fully equipped bathroom, and options to refresh your morning with a rain shower or unwind in a relaxing bathtub. Whether you need to stay connected for work or take a nap on the comfortable daybed, every detail is crafted to help you recharge and feel at ease.`,
@@ -231,6 +234,7 @@
   </script>
 </body>
 </html>
+
 
 
 
